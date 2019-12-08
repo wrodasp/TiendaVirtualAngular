@@ -12,11 +12,11 @@ export class AppComponent {
   constructor(private router:Router) {}
 
   abrirUsuarios() {
-    this.router.navigate([""]);
+    this.router.navigate(["usuarios"]);
   }
 
   abrirProductos() {
-    this.router.navigate([""]);
+    this.router.navigate(["productos"]);
   }
 
   abrirCategorias() {

@@ -9,16 +9,14 @@
                     <tr class="text-center">
                         <th>ID</th>
                         <th>Descripción</th>
-                        <td><button class="btn btn-info" 
-                                    (click)="agregarCategoria()">Nueva</button></td>
+                        <td><button class="btn btn-info" (click)="agregarCategoria()">Nueva</button></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let categoria of categorias | async" class="text-center">
                         <td>{{categoria.id}}</td>
                         <td>{{categoria.descripcion}}</td>
-                        <td><button class="btn btn-danger" 
-                                    (click)="eliminarCategoria(categoria)" >Eliminar</button></td>
+                        <td><button class="btn btn-danger" (click)="eliminarCategoria(categoria)">Eliminar</button></td>
                     </tr>
                 </tbody>
             </table>

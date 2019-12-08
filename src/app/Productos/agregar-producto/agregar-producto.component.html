@@ -1,0 +1,27 @@
+<div class="container col-md-8">
+    <div class="card">
+        <div class="card-header">
+            <h3>Nuevo Producto</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Descripción"
+                           name="descripcion" type="text" required
+                           [(ngModel)]="producto.descripcion">
+                    <input class="form-control" placeholder="Precio"
+                           name="precio" type="text" required
+                           [(ngModel)]="producto.precio">
+                    <input class="form-control" placeholder="Cantidad inicial"
+                           name="cantidad" type="text" required
+                           [(ngModel)]="producto.cantidad">
+                    <input class="form-control" placeholder="URL de imagen"
+                           name="imagen" type="text" required
+                           [(ngModel)]="producto.imagen">
+                </div>
+                <button (click)="guardar()" class="btn btn-danger">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

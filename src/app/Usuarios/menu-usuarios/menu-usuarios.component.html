@@ -1,0 +1,30 @@
+<div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Usuarios</h3>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Email</th>
+                            <th>Usuario</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <td><button class="btn btn-info" (click)="agregarUsuario()">Nueva</button></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let usuario of usuarios | async" class="text-center">
+                            <td>{{usuario.correo}}</td>
+                            <td>{{usuario.nombre}}" "{{usuario.apellido}}</td>
+                            <td>{{usuario.direccion}}</td>
+                            <td>{{usuario.telefono}}</td>
+                            <td><button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
