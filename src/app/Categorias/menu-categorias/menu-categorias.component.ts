@@ -28,7 +28,11 @@ export class MenuCategoriasComponent implements OnInit {
     this.router.navigate(["agregarCategoria"]);
   }
 
-  eliminarCategoria() {
-    this.router.navigate(["eliminarCategoria"]);
+  eliminarCategoria(categoria:Categoria) {
+    this.servicio.eliminarCategoria(categoria).subscribe(
+      data => {
+        this.listarCategorias();
+      }
+    )
   }
 }

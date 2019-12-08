@@ -15,4 +15,12 @@ export class CategoriasService {
   getCategorias(): Observable<any> {
     return this.http.get(`${this.url}`);
   }
+  
+  agregarCategoria(categoria:Categoria)  {
+    return this.http.post<Categoria>(`${this.url}`, categoria);
+  }
+
+  eliminarCategoria(categoria:Categoria) {
+    return this.http.delete(`${this.url}/${categoria.id}`);
+  }
 }

@@ -1,1 +1,17 @@
-<p>agregar-categoria works!</p>
+<div class="container col-md-8">
+    <div class="card">
+        <div class="card-header">
+            <h3>Nueva categoria</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Descripción" name="descripcion"
+                           type="text" required [(ngModel)]="categoria.descripcion">
+                </div>
+                <button (click)="guardar()" class="btn btn-danger">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
