@@ -11,15 +11,18 @@
                             <th>Usuario</th>
                             <th>Direccion</th>
                             <th>Telefono</th>
+                            <th>Rol</th>
                             <td><button class="btn btn-info" (click)="agregarUsuario()">Nueva</button></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let usuario of usuarios | async" class="text-center">
                             <td>{{usuario.correo}}</td>
-                            <td>{{usuario.nombre}}" "{{usuario.apellido}}</td>
+                            <td>{{usuario.nombre}} {{usuario.apellido}}</td>
                             <td>{{usuario.direccion}}</td>
                             <td>{{usuario.telefono}}</td>
+                            <td>{{usuario.roll}}</td>
+                            <td><button class="btn btn-warning" (click)="modificarUsuario()">Editar</button></td>
                             <td><button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar</button></td>
                         </tr>
                     </tbody>

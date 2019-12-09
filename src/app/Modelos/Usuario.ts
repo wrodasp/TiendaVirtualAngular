@@ -6,4 +6,5 @@ export class Usuario {
     telefono:String;
     correo:String;
     clave:String;
+    roll:String;
 }
