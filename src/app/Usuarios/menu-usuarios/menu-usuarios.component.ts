@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/Modelos/Usuario';
 import { Router } from '@angular/router';
 import { UsuariosService } from 'src/app/Servicios/usuarios.service';
+import { DialogoConfirmacionService } from 'src/app/Servicios/dialogo-confirmacion.service';
 
 @Component({
   selector: 'app-menu-usuarios',
@@ -13,7 +14,8 @@ export class MenuUsuariosComponent implements OnInit {
 
   usuarios:Observable<Usuario[]>;
 
-  constructor(private servicio:UsuariosService,
+  constructor(private dialogoConfirmacion:DialogoConfirmacionService,
+              private servicio:UsuariosService,
               private router:Router) {}
   
   ngOnInit() {
@@ -28,8 +30,20 @@ export class MenuUsuariosComponent implements OnInit {
     this.router.navigate(["nuevoUsuario"]);
   }
 
-  eliminarUsuario(usuario:Usuario) {
-    
+  modificarUsuario(usuario:Usuario) {
+    localStorage.setItem("correo", usuario.correo.toString());
+    this.router.navigate(['modificarUsuario']);
   }
 
+  eliminarUsuario(usuario:Usuario) {
+    this.dialogoConfirmacion.confirm().then(
+      (confirmado) => {if (confirmado) {
+        this.servicio.eliminarUsuario(usuario).subscribe(
+          data => {
+            this.listarUsuarios();
+          }
+        );
+      }}
+    );
+  }
 }

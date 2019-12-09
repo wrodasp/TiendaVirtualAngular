@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CategoriasService } from 'src/app/Servicios/categorias.service';
 import { Categoria } from 'src/app/Modelos/Categoria';
 import { Observable } from 'rxjs';
+import { DialogoConfirmacionService } from 'src/app/Servicios/dialogo-confirmacion.service';
 
 @Component({
   selector: 'app-menu-categorias',
@@ -13,7 +14,8 @@ export class MenuCategoriasComponent implements OnInit {
   
   categorias:Observable<Categoria[]>;
 
-  constructor(private servicio:CategoriasService,
+  constructor(private dialogoConfirmacion:DialogoConfirmacionService,
+              private servicio:CategoriasService,
               private router:Router) {}
   
   ngOnInit() {
@@ -29,10 +31,14 @@ export class MenuCategoriasComponent implements OnInit {
   }
 
   eliminarCategoria(categoria:Categoria) {
-    this.servicio.eliminarCategoria(categoria).subscribe(
-      data => {
-        this.listarCategorias();
-      }
-    )
+    this.dialogoConfirmacion.confirm().then(
+      (confirmado) => {if (confirmado) {
+        this.servicio.eliminarCategoria(categoria).subscribe(
+          data => {
+            this.listarCategorias();
+          }
+        );
+      }}
+    );
   }
 }

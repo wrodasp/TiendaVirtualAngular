@@ -12,17 +12,17 @@
                         <th>Descripción</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
-                        <td><button class="btn btn-info" (click)="agregarProducto()">Nueva</button></td>
+                        <td><button class="btn btn-primary" (click)="agregarProducto()">Nuevo</button></td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let producto of productos | async" class="text-center">
-                        <td class="text-center">{{producto.id}}</td>
+                        <td>{{producto.id}}</td>
                         <td><img src="{{producto.imagen}}" height="100" width="100" alt="Sin imagen"></td>
-                        <td class="text-center">{{producto.descripcion}}</td>
-                        <td class="text-center">{{producto.precio}}</td>
-                        <td class="text-center">{{producto.cantidad}}</td>
-                        <td class="text-center"><button class="btn btn-danger" (click)="eliminarProducto()">Eliminar</button></td>
+                        <td>{{producto.descripcion}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.cantidad}}</td>
+                        <td><button class="btn btn-danger" (click)="eliminarProducto()">Eliminar</button></td>
                     </tr>
                 </tbody>
             </table>

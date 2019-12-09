@@ -1,1 +1,31 @@
-<p>agregar-usuario works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Nuevo Usuario</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Nombre" name="nombre" type="text" required
+                        [(ngModel)]="usuario.nombre">
+                    <input class="form-control" placeholder="Apellido" name="apellido" type="text" required
+                        [(ngModel)]="usuario.apellido">
+                    <input class="form-control" placeholder="Dirección" name="direccion" type="text" required
+                        [(ngModel)]="usuario.direccion">
+                    <input class="form-control" placeholder="Telefono" name="telefono" type="text"
+                        [(ngModel)]="usuario.telefono">
+                    <input class="form-control" placeholder="Correo electrónico" name="correo" type="email"
+                        [(ngModel)]="usuario.correo" required>
+                    <input class="form-control" placeholder="Contraseña" name="clave" type="password"
+                        [(ngModel)]="usuario.clave" required>
+                    <select class="form-control" [(ngModel)]="usuario.roll" name="rol" required>
+                        <option selected value="Administrador">Administrador</option>
+                        <option value="Cliente">Cliente</option>
+                    </select>
+                </div>
+                <button (click)="guardar()" class="btn btn-success">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

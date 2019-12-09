@@ -11,13 +11,14 @@ import { Categoria } from 'src/app/Modelos/Categoria';
 export class AgregarCategoriaComponent implements OnInit {
 
   categoria = new Categoria();
+  
   constructor(private servicio:CategoriasService,
               private router:Router) { }
 
   ngOnInit() {
   }
 
-  guardar(categoria) {
+  guardar() {
     this.servicio.agregarCategoria(this.categoria).subscribe(
       data => {
         this.router.navigate(["/categorias"]);

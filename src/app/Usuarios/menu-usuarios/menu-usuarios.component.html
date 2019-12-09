@@ -12,7 +12,7 @@
                             <th>Direccion</th>
                             <th>Telefono</th>
                             <th>Rol</th>
-                            <td><button class="btn btn-info" (click)="agregarUsuario()">Nueva</button></td>
+                            <td><button class="btn btn-primary" (click)="agregarUsuario()">Nuevo</button></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -22,8 +22,8 @@
                             <td>{{usuario.direccion}}</td>
                             <td>{{usuario.telefono}}</td>
                             <td>{{usuario.roll}}</td>
-                            <td><button class="btn btn-warning" (click)="modificarUsuario()">Editar</button></td>
-                            <td><button class="btn btn-danger" (click)="eliminarUsuario()">Eliminar</button></td>
+                            <td><button class="btn btn-warning" (click)="modificarUsuario(usuario)">Editar</button></td>
+                            <td><button class="btn btn-danger" (click)="eliminarUsuario(usuario)">Eliminar</button></td>
                         </tr>
                     </tbody>
                 </table>

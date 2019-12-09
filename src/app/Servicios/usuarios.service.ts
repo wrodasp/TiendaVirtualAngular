@@ -17,7 +17,15 @@ export class UsuariosService {
   }
   
   agregarUsuario(usuario:Usuario)  {
-    return this.http.post<Usuario>(`${this.url}`, usuario);
+    return this.http.post<Usuario>(`${this.url}`,usuario);
+  }
+
+  buscarUsuario(correo:String)  {
+    return this.http.get<Usuario>(`${this.url}/${correo}`);
+  }
+
+  modificarUsuario(usuario:Usuario)  {
+    return this.http.put<Usuario>(`${this.url}/${usuario.correo}.`, usuario);
   }
 
   eliminarUsuario(usuario:Usuario) {

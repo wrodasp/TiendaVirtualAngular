@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriasService } from './Servicios/categorias.service';
 import { MenuProductosComponent } from './Productos/menu-productos/menu-productos.component';
 import { AgregarProductoComponent } from './Productos/agregar-producto/agregar-producto.component';
-import { EliminarProductoComponent } from './Productos/eliminar-producto/eliminar-producto.component';
 import { ModificarProductoComponent } from './Productos/modificar-producto/modificar-producto.component';
 import { ProductosService } from './Servicios/productos.service';
 import { MenuUsuariosComponent } from './Usuarios/menu-usuarios/menu-usuarios.component';
 import { AgregarUsuarioComponent } from './Usuarios/agregar-usuario/agregar-usuario.component';
 import { ModificarUsuarioComponent } from './Usuarios/modificar-usuario/modificar-usuario.component';
-import { EliminarUsuarioComponent } from './Usuarios/eliminar-usuario/eliminar-usuario.component';
+import { DialogoConfirmacionComponent } from './Extras/dialogo-confirmacion/dialogo-confirmacion.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UsuariosService } from './Servicios/usuarios.service';
+import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.service';
 
 @NgModule({
   declarations: [
@@ -25,20 +27,26 @@ import { EliminarUsuarioComponent } from './Usuarios/eliminar-usuario/eliminar-u
     MenuCategoriasComponent,
     MenuProductosComponent,
     AgregarProductoComponent,
-    EliminarProductoComponent,
     ModificarProductoComponent,
     MenuUsuariosComponent,
     AgregarUsuarioComponent,
     ModificarUsuarioComponent,
-    EliminarUsuarioComponent
+    DialogoConfirmacionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
-  providers: [CategoriasService,ProductosService],
-  bootstrap: [AppComponent]
+  providers: [CategoriasService,
+              ProductosService,
+              UsuariosService, 
+              DialogoConfirmacionService],
+  bootstrap: [AppComponent],
+  entryComponents:[
+    DialogoConfirmacionComponent
+  ]
 })
 export class AppModule { }

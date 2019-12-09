@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from 'src/app/Servicios/usuarios.service';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/Modelos/Usuario';
+import { DialogoConfirmacionService } from 'src/app/Servicios/dialogo-confirmacion.service';
 
 @Component({
   selector: 'app-modificar-usuario',
@@ -7,9 +11,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModificarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  usuario = new Usuario();
+
+  constructor(private dialogoConfirmacion:DialogoConfirmacionService,
+              private servicio:UsuariosService,
+              private router:Router) { }
 
   ngOnInit() {
+    this.mostrarDatos();
   }
 
+  mostrarDatos() {
+    let correo = localStorage.getItem("correo");
+    this.servicio.buscarUsuario(correo).subscribe(
+      data => {
+        this.usuario = data;
+      }
+    );
+  }
+
+  actualizar(usuario:Usuario) {
+    this.dialogoConfirmacion.confirm().then(
+      (confirmado) => {if (confirmado) {
+        this.servicio.modificarUsuario(usuario).subscribe(
+          data => {
+            this.router.navigate(["usuarios"]);
+          }
+        );
+      }}
+    );
+  }
 }

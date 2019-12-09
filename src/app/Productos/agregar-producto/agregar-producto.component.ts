@@ -12,12 +12,12 @@ export class AgregarProductoComponent implements OnInit {
 
   producto = new Producto();
   constructor(private servicio:ProductosService,
-    private router:Router) { }
+              private router:Router) { }
 
   ngOnInit() {
   }
 
-  guardar(producto) {
+  guardar() {
     this.servicio.agregarProducto(this.producto).subscribe(
       data => {
         this.router.navigate(["/productos"]);
