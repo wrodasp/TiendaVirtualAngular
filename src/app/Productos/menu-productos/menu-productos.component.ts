@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DebugElement } from '@angular/core';
 import { Producto } from 'src/app/Modelos/Producto';
 import { Observable } from 'rxjs';
 import { ProductosService } from 'src/app/Servicios/productos.service';
 import { Router } from '@angular/router';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-menu-productos',
@@ -32,7 +33,9 @@ export class MenuProductosComponent implements OnInit {
     this.router.navigate(["eliminarProducto"]);
   }
   modificarProducto(producto:Producto){
+    console.log(producto.id+producto.id);
     localStorage.setItem("id", producto.id.toString());
     this.router.navigate(['modificarProducto']);
   }
+  
 }

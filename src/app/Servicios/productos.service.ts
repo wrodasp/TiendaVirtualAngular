@@ -27,6 +27,7 @@ export class ProductosService {
     return this.http.delete(`${this.url}/${producto.id}`);
   }
   modificarProducto(producto:Producto){
+    console.debug(producto.id);
     return this.http.put<Producto>(`${this.url}/${producto.id}`, producto);
 
   }

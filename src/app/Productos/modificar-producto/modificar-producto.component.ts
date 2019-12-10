@@ -22,19 +22,19 @@ export class ModificarProductoComponent implements OnInit {
   }
   mostrarDatos(){
      let id =localStorage.getItem("id");
-     
     this.servicio.buscarProducto(parseInt(id)).subscribe(
       data => {
         this.producto = data;
       }
     );
   }
+
   actualizar(producto:Producto){
     this.dialogoConfirmacion.confirm().then(
       (confirmado) => {if (confirmado){
         this.servicio.modificarProducto(producto).subscribe(
           data=>{
-            this.router.navigate([producto]);
+            this.router.navigate(["productos"]);
           }
         );
       }}
