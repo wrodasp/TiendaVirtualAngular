@@ -6,22 +6,45 @@
         <div class="card-body">
             <form action="">
                 <div class="form-group">
+                        <label for="uname"><b>Descripcion</b></label>
                     <input class="form-control" placeholder="Descripción"
                            name="descripcion" type="text" required
                            [(ngModel)]="producto.descripcion">
+                           <label for="uname"><b>Precio</b></label>
                     <input class="form-control" placeholder="Precio"
                            name="precio" type="text" required
                            [(ngModel)]="producto.precio">
+                           <label for="uname"><b>Cantidad</b></label>
                     <input class="form-control" placeholder="Cantidad inicial"
                            name="cantidad" type="text" required
                            [(ngModel)]="producto.cantidad">
+                           <label for="uname"><b>Imagen URL</b></label>
                     <input class="form-control" placeholder="URL de imagen"
                            name="imagen" type="text" required
                            [(ngModel)]="producto.imagen">
+                           <div class="card-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>ID</th>
+                                            <th>Descripción</th>
+                                            <td><button class="btn btn-primary" (click)="agregarCategoria()">Nueva</button></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let categoria of categorias | async" class="text-center">
+                                            <td>{{categoria.id}}</td>
+                                            <td>{{categoria.descripcion}}</td>
+                                            <td><button class="btn btn-danger" (click)="eliminarCategoria(categoria)">Eliminar</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                 </div>
                 <button (click)="guardar()" class="btn btn-success">Guardar</button>
             </form>
         </div>
     </div>
 </div>
+
 <router-outlet></router-outlet>

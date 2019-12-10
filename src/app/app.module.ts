@@ -38,7 +38,8 @@ import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.ser
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [CategoriasService,
               ProductosService,

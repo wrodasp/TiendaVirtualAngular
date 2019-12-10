@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ProductosService } from 'src/app/Servicios/productos.service';
 import { Router } from '@angular/router';
 import { debug } from 'util';
+import { DialogoConfirmacionService } from 'src/app/Servicios/dialogo-confirmacion.service';
 
 @Component({
   selector: 'app-menu-productos',
@@ -14,7 +15,8 @@ export class MenuProductosComponent implements OnInit {
 
   productos:Observable<Producto[]>;
 
-  constructor(private servicio:ProductosService,
+  constructor(private dialogoConfirmacion:DialogoConfirmacionService,
+              private servicio:ProductosService,
               private router:Router) {}
   
   ngOnInit() {
@@ -30,10 +32,18 @@ export class MenuProductosComponent implements OnInit {
   }
 
   eliminarProducto(producto:Producto) {
-    this.router.navigate(["eliminarProducto"]);
+    this.dialogoConfirmacion.confirm().then(
+      (confirmado) => {if (confirmado) {
+        this.servicio.eliminarProducto(producto).subscribe(
+          data => {
+            this.listarProductos();
+          }
+        );
+      }}
+    );
   }
   modificarProducto(producto:Producto){
-    console.log(producto.id+producto.id);
+    console.log("hasta aqui va bien ");
     localStorage.setItem("id", producto.id.toString());
     this.router.navigate(['modificarProducto']);
   }
