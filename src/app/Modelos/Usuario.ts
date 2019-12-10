@@ -1,5 +1,4 @@
 export class Usuario {
-    
     nombre:String;
     apellido:String;
     direccion:String;

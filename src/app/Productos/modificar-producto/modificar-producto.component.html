@@ -1,1 +1,28 @@
-<p>modificar-producto works!</p>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar Usuario</h3>
+        </div>
+        <div class="card-body">
+            <form >
+                <div class="form-group">
+                    <label for="uname"><b>Descripcion</b></label>
+                    <input class="form-control" placeholder="Descripcion" name="descripcion" type="text" required
+                        [(ngModel)]="producto.descripcion">
+                        <label for="uname"><b>Precio</b></label>
+                    <input class="form-control" placeholder="Precio" name="precio" type="text" required
+                        [(ngModel)]="producto.precio">
+                        <label for="uname"><b>Cantidad</b></label>
+                    <input class="form-control" placeholder="Cantidad" name="cantidad" type="text" required
+                        [(ngModel)]="producto.cantidad">
+                        <label for="uname"><b>Votos</b></label>
+                    <input class="form-control" placeholder="Votos" name="votos" type="text"
+                        [(ngModel)]="producto.votos">
+                   
+                </div>
+                <button type="button" (click)="actualizar(producto)" class="btn btn-success">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

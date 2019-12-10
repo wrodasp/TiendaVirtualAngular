@@ -15,6 +15,9 @@ export class ProductosService {
   getProductos(): Observable<any> {
     return this.http.get(`${this.url}`);
   }
+  buscarProducto(id:number){
+    return this.http.get<Producto>((`${this.url}/${id}`));
+  }
   
   agregarProducto(producto:Producto)  {
     return this.http.post<Producto>(`${this.url}`, producto);
@@ -22,5 +25,9 @@ export class ProductosService {
 
   eliminarProducto(producto:Producto) {
     return this.http.delete(`${this.url}/${producto.id}`);
+  }
+  modificarProducto(producto:Producto){
+    return this.http.put<Producto>(`${this.url}/${producto.id}`, producto);
+
   }
 }

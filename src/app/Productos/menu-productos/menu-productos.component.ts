@@ -31,4 +31,8 @@ export class MenuProductosComponent implements OnInit {
   eliminarProducto(producto:Producto) {
     this.router.navigate(["eliminarProducto"]);
   }
+  modificarProducto(producto:Producto){
+    localStorage.setItem("id", producto.id.toString());
+    this.router.navigate(['modificarProducto']);
+  }
 }
