@@ -23,4 +23,8 @@ export class CategoriasService {
   eliminarCategoria(categoria:Categoria) {
     return this.http.delete(`${this.url}/${categoria.id}`);
   }
+
+  buscarCategoria(id: number) {
+    return this.http.get<Categoria>(`${this.url}/${id}`);
+  }
 }

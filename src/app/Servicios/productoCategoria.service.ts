@@ -13,9 +13,16 @@ url = "http://localhost:8080/tiendavirtual/productos_categorias";
   getCategoriasProductos(): Observable<any>{
     return this.http.get(`${this.url}`);
   }
-  agregarProductoCategoria(prodCat:ProductoCategoria){
-    console.log( prodCat);
-    return this.http.post<ProductoCategoria>(`${this.url}`, prodCat);
 
+  buscarProducto(id:number){
+    return this.http.get<ProductoCategoria>((`${this.url}/${id}`));
+  }
+
+  agregarProductoCategoria(productoCategorias:ProductoCategoria){
+    return this.http.post<ProductoCategoria>(`${this.url}`, productoCategorias);
+  }
+
+  eliminarProductoCategoria(productoCategorias:ProductoCategoria) {
+    return this.http.delete(`${this.url}/${productoCategorias.id}`);
   }
 }

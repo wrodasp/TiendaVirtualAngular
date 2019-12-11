@@ -42,10 +42,9 @@ export class MenuProductosComponent implements OnInit {
       }}
     );
   }
-  modificarProducto(producto:Producto){
-    console.log("hasta aqui va bien ");
+
+  modificarProducto(producto:Producto) {
     localStorage.setItem("id", producto.id.toString());
     this.router.navigate(['modificarProducto']);
   }
-  
 }

@@ -20,7 +20,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from './Servicios/usuarios.service';
 import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.service';
 
-import { AgregarCategoriaProductoComponent } from './CategoriaProducto/agregar-categoria-producto/agregar-categoria-producto.component';
 import { ProductoCategoriaService } from './Servicios/productoCategoria.service';
 
 
@@ -35,9 +34,7 @@ import { ProductoCategoriaService } from './Servicios/productoCategoria.service'
     MenuUsuariosComponent,
     AgregarUsuarioComponent,
     ModificarUsuarioComponent,
-    DialogoConfirmacionComponent,
-    
-    AgregarCategoriaProductoComponent,
+    DialogoConfirmacionComponent
   ],
   imports: [
     BrowserModule,
