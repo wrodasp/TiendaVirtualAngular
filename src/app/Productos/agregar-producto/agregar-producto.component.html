@@ -24,10 +24,12 @@
                            [(ngModel)]="producto.imagen">
                            <label for="uname"><b>Categorias</b></label>
                            <form *ngFor="let categoria of categorias">
-                            <input name="{{categoria.id}}" value= "{{categoria.id}}" type="checkbox" 
+                            <input name="{{categoria.id}}" type="checkbox" required
+                            [(ngModel)]="productoCat.estado"
                            >{{categoria.descripcion}}
-                            
                             </form>
+                            
+                                  
                 </div>
                 <button (click)="guardar()" class="btn btn-success">Guardar</button>
             </form>

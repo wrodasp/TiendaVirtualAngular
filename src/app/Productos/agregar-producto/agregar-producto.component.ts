@@ -7,6 +7,7 @@ import { CategoriasService } from 'src/app/Servicios/categorias.service';
 import { Observable, Subscriber } from 'rxjs';
 import { ProductoCategoriaService } from 'src/app/Servicios/productoCategoria.service';
 import { ProductoCategoria } from 'src/app/Modelos/productoCategoria';
+import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -19,15 +20,40 @@ export class AgregarProductoComponent implements OnInit {
   producto2 = new Producto();
   productoCat = new ProductoCategoria();
   categorias: Observable<Categoria[]>;
-  constructor(private servicio: ProductosService,
+  form: FormGroup;
+  ordersData = [ 
+    { id: 100, name: 'order 1' },
+    { id: 200, name: 'order 2' },
+    { id: 300, name: 'order 3' },
+    { id: 400, name: 'order 4' }
+  ];
+  constructor(private formBuilder: FormBuilder,private servicio: ProductosService,
     private router: Router,
     private servi: ProductoCategoriaService,
-    private servicocat: CategoriasService) { }
+    private servicocat: CategoriasService) {
+      this.form = this.formBuilder.group({
+        orders: new FormArray([])
+       
+     });
+     this.addCheckboxes();
+     }
 
   ngOnInit() {
     this.listarCategoria();
   }
+  private addCheckboxes() {
+    this.ordersData.forEach((o, i) => {
+      const control = new FormControl(i === 0); // if first item set to true, else false
+      (this.form.controls.orders as FormArray).push(control);
+    });
+  }
+  submit(
+    
+  ) {
+
+   }
   guardar() {
+    console.log(this.productoCat.estado);
     this.servicio.agregarProducto(this.producto).subscribe(
       data => {
         this.servicio.buscarProductoDesc(this.producto.descripcion).subscribe(
@@ -51,6 +77,7 @@ export class AgregarProductoComponent implements OnInit {
     this.servicocat.getCategorias().subscribe(
       data => {
         this.categorias = data;
+        this.categorias.subscribe(i => console.log(i));
       }
     );
 
