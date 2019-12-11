@@ -18,48 +18,39 @@ export class AgregarProductoComponent implements OnInit {
   producto = new Producto();
   producto2 = new Producto();
   productoCat = new ProductoCategoria();
-  categorias:Observable<Categoria[]>;
-  constructor(private servicio:ProductosService,
-              private router:Router,
-                private servi:ProductoCategoriaService,
-              private servicocat:CategoriasService) { }
+  categorias: Observable<Categoria[]>;
+  constructor(private servicio: ProductosService,
+    private router: Router,
+    private servi: ProductoCategoriaService,
+    private servicocat: CategoriasService) { }
 
   ngOnInit() {
-   this.listarCategoria();
-  
+    this.listarCategoria();
   }
-
   guardar() {
-    
-   
-     
     this.servicio.agregarProducto(this.producto).subscribe(
       data => {
-        this.router.navigate(["/productos"]);
+        this.servicio.buscarProductoDesc(this.producto.descripcion).subscribe(
+          data => {
+            console.log("trae dato: " + data.id);
+            this.productoCat.producto_id = data.id;
+            this.productoCat.categoria_id = data.id;
+            this.servi.agregarProductoCategoria(this.productoCat).subscribe(
+              data => {
+                this.router.navigate(["/productos"]);
+              }
+            );
+          }
+        )
+        // this.router.navigate(["/productos"]);
       }
     );
-      this.servicio.buscarProductoDesc(this.producto.descripcion).subscribe(
-        data =>{
-          console.log("trae dato: "+data);
-          this.producto2=data;
-        }
-      )
 
-    console.log(this.productoCat.producto_id+" - "+this.producto2.id);
-    this.productoCat.producto_id=this.producto2.id;
- 
-    console.log(this.productoCat.producto_id);
- 
-   // this.servi.agregarProductoCategoria(this.productoCat).subscribe(
-     // data => {
-      //  this.router.navigate(["/productos"]);
-      //}
-    //);
   }
-  listarCategoria(){
+  listarCategoria() {
     this.servicocat.getCategorias().subscribe(
-      data =>{
-        this.categorias=data;
+      data => {
+        this.categorias = data;
       }
     );
 

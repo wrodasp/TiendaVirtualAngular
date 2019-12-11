@@ -20,7 +20,8 @@ export class ProductosService {
   }
   buscarProductoDesc(descripcion:String){
     console.log(descripcion);
-    return this.http.get<Producto>((`${this.url}/${descripcion}`));
+    console.log((`${this.url}/filtro/${descripcion}`));
+    return this.http.get<Producto>((`${this.url}/filtro/${descripcion}.`));
   }
   
   agregarProducto(producto:Producto)  {

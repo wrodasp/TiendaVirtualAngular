@@ -25,8 +25,7 @@
                            <label for="uname"><b>Categorias</b></label>
                            <form *ngFor="let categoria of categorias">
                             <input name="{{categoria.id}}" value= "{{categoria.id}}" type="checkbox" 
-                            required
-                            [(ngModel)]="productoCat.producto_id">{{categoria.descripcion}}
+                           >{{categoria.descripcion}}
                             
                             </form>
                 </div>
