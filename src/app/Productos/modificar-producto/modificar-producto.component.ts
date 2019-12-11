@@ -44,12 +44,15 @@ export class ModificarProductoComponent implements OnInit {
   listarCategoriasDelProducto() {
     this.categorias = new Array<Categoria>();
     this.categoriasProducto = this.servicioCategoriasProductos.getCategoriasProductos()
-    this.categoriasProducto.forEach(
+    this.categoriasProducto.subscribe(
       data => {
-        let productoCategoria:ProductoCategoria = data.pop();
-        this.servicioCategorias.buscarCategoria(productoCategoria.categoria_id).subscribe(
-          categoria => {this.categorias.push(categoria)}
-        );
+        data.forEach(
+          productoCategoria => {
+            this.servicioCategorias.buscarCategoria(productoCategoria.categoria_id).subscribe(
+              categoria => {this.categorias.push(categoria)}
+            );
+          }
+        )
       }
     )
   }
@@ -59,10 +62,13 @@ export class ModificarProductoComponent implements OnInit {
       (confirmado) => {if (confirmado){
         this.servicio.modificarProducto(producto).subscribe(
           data=> {
-            this.categoriasProducto.forEach(
+            this.categoriasProducto.subscribe(
               elemento => {
-                let productoCategoria:ProductoCategoria = elemento.pop();
-                this.servicioCategoriasProductos.eliminarProductoCategoria(productoCategoria);
+                elemento.forEach(
+                  productoCategoria => {
+                    this.servicioCategoriasProductos.eliminarProductoCategoria(productoCategoria);
+                  }
+                )
               }
             )
             this.categorias.forEach(
