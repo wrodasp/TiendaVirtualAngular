@@ -22,24 +22,10 @@
                     <input class="form-control" placeholder="URL de imagen"
                            name="imagen" type="text" required
                            [(ngModel)]="producto.imagen">
-                           <div class="card-body">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr class="text-center">
-                                            <th>ID</th>
-                                            <th>Descripción</th>
-                                            <td><button class="btn btn-primary" (click)="agregarCategoria()">Nueva</button></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let categoria of categorias | async" class="text-center">
-                                            <td>{{categoria.id}}</td>
-                                            <td>{{categoria.descripcion}}</td>
-                                            <td><button class="btn btn-danger" (click)="eliminarCategoria(categoria)">Eliminar</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                           <label for="uname"><b>Categorias</b></label>
+                           <form *ngFor="let categoria of categorias">
+                            <input name="categoria" value= "{{categoria.id}}"type="checkbox" />{{categoria.descripcion}} 
+                            </form>
                 </div>
                 <button (click)="guardar()" class="btn btn-success">Guardar</button>
             </form>

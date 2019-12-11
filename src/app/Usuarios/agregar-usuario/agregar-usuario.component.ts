@@ -16,6 +16,7 @@ export class AgregarUsuarioComponent implements OnInit {
               private router:Router) { }
 
   ngOnInit() {
+    this.usuario.roll="Cliente"
   }
 
   guardar() {
