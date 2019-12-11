@@ -20,6 +20,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from './Servicios/usuarios.service';
 import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.service';
 
+import { AgregarCategoriaProductoComponent } from './CategoriaProducto/agregar-categoria-producto/agregar-categoria-producto.component';
+import { ProductoCategoriaService } from './Servicios/productoCategoria.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,8 @@ import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.ser
     AgregarUsuarioComponent,
     ModificarUsuarioComponent,
     DialogoConfirmacionComponent,
+    
+    AgregarCategoriaProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,8 @@ import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.ser
   ],
   providers: [CategoriasService,
               ProductosService,
-              UsuariosService, 
+              UsuariosService,
+              ProductoCategoriaService,
               DialogoConfirmacionService],
   bootstrap: [AppComponent],
   entryComponents:[

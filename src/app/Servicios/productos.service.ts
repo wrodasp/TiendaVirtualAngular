@@ -18,9 +18,13 @@ export class ProductosService {
   buscarProducto(id:number){
     return this.http.get<Producto>((`${this.url}/${id}`));
   }
+  buscarProductoDesc(descripcion:String){
+    console.log(descripcion);
+    return this.http.get<Producto>((`${this.url}/${descripcion}`));
+  }
   
   agregarProducto(producto:Producto)  {
-  
+
     return this.http.post<Producto>(`${this.url}`, producto);
   }
 
