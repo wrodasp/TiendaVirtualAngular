@@ -13,7 +13,8 @@ import { DialogoConfirmacionService } from 'src/app/Servicios/dialogo-confirmaci
 })
 export class MenuProductosComponent implements OnInit {
 
-  productos:Observable<Producto[]>;
+  productos:Producto[];
+  filtro:String;
 
   constructor(private dialogoConfirmacion:DialogoConfirmacionService,
               private servicio:ProductosService,
@@ -21,10 +22,13 @@ export class MenuProductosComponent implements OnInit {
   
   ngOnInit() {
     this.listarProductos();
+    this.filtro = "";
   }
 
   listarProductos() {
-    this.productos = this.servicio.getProductos();
+    this.servicio.getProductos().subscribe(
+      data => this.productos = data
+    );
   }
   
   agregarProducto() {
@@ -33,18 +37,57 @@ export class MenuProductosComponent implements OnInit {
 
   eliminarProducto(producto:Producto) {
     this.dialogoConfirmacion.confirm().then(
-      (confirmado) => {if (confirmado) {
-        this.servicio.eliminarProducto(producto).subscribe(
-          data => {
-            this.listarProductos();
-          }
-        );
-      }}
+      (confirmado) => {
+        if (confirmado) {
+          this.servicio.eliminarProducto(producto).subscribe(
+            data => {
+              this.listarProductos();
+            }
+          );
+        }
+      }
     );
   }
 
   modificarProducto(producto:Producto) {
     localStorage.setItem("id", producto.id.toString());
     this.router.navigate(['modificarProducto']);
+  }
+
+  ordenar(atributo:String) {
+    if (atributo == "descripcion") this.productos.sort(this.ordenarPorDescripcion)
+    else if (atributo == "cantidad") this.productos.sort(this.ordenarPorCantidad)
+    else if (atributo == "precio") this.productos.sort(this.ordenarPorPrecio)
+    else if (atributo == "votos") this.productos.sort(this.ordenarPorVotos)
+  }
+
+  ordenarPorDescripcion(a: Producto, b:Producto) {
+    if (a.descripcion > b.descripcion) return 1
+    else if (a.descripcion < b.descripcion) return -1
+    else return 0;
+  }
+
+  ordenarPorCantidad(a: Producto, b:Producto) {
+    if (a.cantidad > b.cantidad) return 1
+    else if (a.cantidad < b.cantidad) return -1
+    else return 0;
+  }
+
+  ordenarPorPrecio(a: Producto, b:Producto) {
+    if (a.precio > b.precio) return 1
+    else if (a.precio < b.precio) return -1
+    else return 0;
+  }
+
+  ordenarPorVotos(a: Producto, b:Producto) {
+    if (a.votos > b.votos) return 1
+    else if (a.votos < b.votos) return -1
+    else return 0;
+  }
+
+  filtrar() {
+    this.productos = this.productos.filter(
+      data => data.descripcion.toLowerCase().includes(this.filtro.toLowerCase())
+    )  
   }
 }

@@ -4,27 +4,36 @@
             <h3>Productos</h3>
         </div>
         <div class="card-body">
+            <div class="row">
+                <div class="col-md-10">
+                    <input class="form-control text-center" [(ngModel)]="filtro" placeholder="Descripción a buscar">
+                </div>
+                <div>
+                    <button class="btn btn-primary" (click)="filtrar()">Filtrar</button>
+                    <button class="btn btn-primary" (click)="listarProductos()">Restaurar</button>
+                </div>
+            </div>
             <table class="table table-hover">
                 <thead>
                     <tr class="text-center">
                         <th>ID</th>
                         <th>Imagen</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
+                        <th><button class="btn btn-link" (click)="ordenar('descripcion')">Descripcion</button></th>
+                        <th><button class="btn btn-link" (click)="ordenar('precio')">Precio</button></th>
+                        <th><button class="btn btn-link" (click)="ordenar('cantidad')">Cantidad</button></th>
                         <td><button class="btn btn-primary" (click)="agregarProducto()">Nuevo</button></td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let producto of productos | async" class="text-center">
+                    <tr *ngFor="let producto of productos" class="text-center">
                         <td>{{producto.id}}</td>
                         <td><img src="{{producto.imagen}}" height="100" width="100" alt="Sin imagen"></td>
                         <td>{{producto.descripcion}}</td>
-                        <td>{{producto.precio}}</td>
+                        <td>{{producto.precio}}$</td>
                         <td>{{producto.cantidad}}</td>
-                        <td><button class="btn btn-warning" (click)="modificarProducto(producto)">Modificar</button></td>
+                        <td><button class="btn btn-warning" (click)="modificarProducto(producto)">Modificar</button>
+                        </td>
                         <td><button class="btn btn-danger" (click)="eliminarProducto(producto)">Eliminar</button></td>
-                        
                     </tr>
                 </tbody>
             </table>
