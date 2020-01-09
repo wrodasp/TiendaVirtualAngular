@@ -8,16 +8,28 @@ import { ModificarProductoComponent } from './Productos/modificar-producto/modif
 import { MenuUsuariosComponent } from './Usuarios/menu-usuarios/menu-usuarios.component';
 import { AgregarUsuarioComponent } from './Usuarios/agregar-usuario/agregar-usuario.component';
 import { ModificarUsuarioComponent } from './Usuarios/modificar-usuario/modificar-usuario.component';
+import { LoginComponent } from './Extras/login/login.component';
+import { PanelAdministradorComponent } from './Extras/panel-administrador/panel-administrador.component';
+import { PanelUsuarioComponent } from './Extras/panel-usuario/panel-usuario.component';
+import { EstadisticasComponent } from './Extras/estadisticas/estadisticas.component';
+import { CatalogoComponent } from './catalogo/catalogo.component';
+import { VerProductoComponent } from './Productos/ver-producto/ver-producto.component';
 
 const routes: Routes = [
-  {path:'categorias', component:MenuCategoriasComponent},
-  {path:'nuevaCategoria', component:AgregarCategoriaComponent},
-  {path:'productos', component:MenuProductosComponent},
-  {path:'nuevoProducto', component:AgregarProductoComponent},
-  {path:'modificarProducto', component:ModificarProductoComponent},
-  {path:'usuarios', component:MenuUsuariosComponent},
-  {path:'nuevoUsuario', component:AgregarUsuarioComponent},
-  {path:'modificarUsuario', component:ModificarUsuarioComponent},
+  {path:'administracion/categorias', component:MenuCategoriasComponent},
+  {path:'administracion/categorias/nuevaCategoria', component:AgregarCategoriaComponent},
+  {path:'administracion/productos', component:MenuProductosComponent},
+  {path:'administracion/productos/nuevoProducto', component:AgregarProductoComponent},
+  {path:'administracion/productos/modificarProducto', component:ModificarProductoComponent},
+  {path:'administracion/usuarios', component:MenuUsuariosComponent},
+  {path:'administracion/usuarios/nuevoUsuario', component:AgregarUsuarioComponent},
+  {path:'administracion/usuarios/modificarUsuario', component:ModificarUsuarioComponent},
+  {path:'login', component:LoginComponent},
+  {path:'administracion', component:PanelAdministradorComponent},
+  {path:'cuenta', component: PanelUsuarioComponent},
+  {path:'administracion/estadisticas', component: EstadisticasComponent},
+  {path:'catalogo', component: CatalogoComponent},
+  {path:'producto', component: VerProductoComponent}
 ];
 
 @NgModule({

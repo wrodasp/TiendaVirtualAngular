@@ -1,0 +1,22 @@
+<script src="node_modules/chart.js/dist/Chart.js"></script>
+<div class="container">
+    <div>
+        <div class="text-center my-3">
+            <h2>Panel de información</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="chart col-md-6 text-center">
+            <canvas baseChart [data]="masVendidosData" [labels]="masVendidosLabels"
+                [chartType]="masVendidosType" [colors]="colors">
+            </canvas>
+            <h3 class="my-3">Productos más vendidos</h3>
+        </div>
+        <div class="chart col-md-6 text-center">
+            <canvas baseChart [data]="masVotadosData" [labels]="masVotadosLabels"
+                [chartType]="masVotadosType" [colors]="colors">
+            </canvas>
+            <h3 class="my-3">Productos más votados</h3>
+        </div>
+    </div>
+</div>

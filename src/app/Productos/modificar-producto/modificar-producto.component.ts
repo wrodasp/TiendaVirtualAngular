@@ -43,7 +43,7 @@ export class ModificarProductoComponent implements OnInit {
 
   listarCategoriasDelProducto() {
     this.categorias = new Array<Categoria>();
-    this.categoriasProducto = this.servicioCategoriasProductos.getCategoriasProductos()
+    this.categoriasProducto = this.servicioCategoriasProductos.getCategoriasProductos();
     this.categoriasProducto.subscribe(
       data => {
         data.forEach(

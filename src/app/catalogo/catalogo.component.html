@@ -1,0 +1,39 @@
+<div class="row my-3">
+    <div class="col-md-3 text-center">
+        <img [src]="rutaLogo" height="70" width="50">
+        <h4>Lyokozone</h4>
+    </div>
+    <div class="row col-md-7 ml-3">
+        <div class="col-md-11 mb-3">
+            <input class="form-control text-center" [(ngModel)]="textoBusqueda" type="text"
+                placeholder="Buscar un producto">
+        </div>
+        <h3>Productos disponibles:</h3>
+    </div>
+    <div class="row">
+        <div>
+            <button (click)="buscarProductos()">Buscar</button>
+            <button (click)="limpiarProductos()">Limpiar</button>
+            <button (click)="iniciarSesion()">Iniciar Sesion</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 mx-3">
+        <form *ngFor="let categoria of categorias">
+            <input name="{{categoria.id}}" type="checkbox"
+                (change)="filtrarPorCategoria(categoria)">{{categoria.descripcion}}<br>
+        </form>
+    </div>
+    <div>
+        <ul>
+            <li *ngFor="let producto of productos" (click)="verProducto(producto)" class="my-5 mx-3">
+                <div class="row">
+                    <img src="{{producto.imagen}}" height="100" width="100">
+                    <p>{{producto.descripcion}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,18 @@
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="uname"><b>Descripcion</b></label>
+            <input class="form-control" placeholder="Descripcion" name="descripcion" type="text" required
+                [(ngModel)]="producto.descripcion">
+            <label for="uname"><b>Precio</b></label>
+            <input class="form-control" placeholder="Precio" name="precio" type="text" required
+                [(ngModel)]="producto.precio">
+            <label for="uname"><b>Cantidad</b></label>
+            <input class="form-control" placeholder="Cantidad" name="cantidad" type="text" required
+                [(ngModel)]="producto.cantidad">
+            <label for="uname"><b>Votos</b></label>
+            <input class="form-control" placeholder="Votos" name="votos" type="text" [(ngModel)]="producto.votos">
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>

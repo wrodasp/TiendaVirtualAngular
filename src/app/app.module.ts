@@ -19,9 +19,16 @@ import { DialogoConfirmacionComponent } from './Extras/dialogo-confirmacion/dial
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from './Servicios/usuarios.service';
 import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.service';
-
 import { ProductoCategoriaService } from './Servicios/productoCategoria.service';
-
+import { LoginComponent } from './Extras/login/login.component';
+import { PanelAdministradorComponent } from './Extras/panel-administrador/panel-administrador.component';
+import { PanelUsuarioComponent } from './Extras/panel-usuario/panel-usuario.component';
+import { EstadisticasComponent } from './Extras/estadisticas/estadisticas.component';
+import { ChartsModule } from 'ng2-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CatalogoComponent } from './catalogo/catalogo.component';
+import { VerProductoComponent } from './Productos/ver-producto/ver-producto.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +41,13 @@ import { ProductoCategoriaService } from './Servicios/productoCategoria.service'
     MenuUsuariosComponent,
     AgregarUsuarioComponent,
     ModificarUsuarioComponent,
-    DialogoConfirmacionComponent
+    DialogoConfirmacionComponent,
+    LoginComponent,
+    PanelAdministradorComponent,
+    PanelUsuarioComponent,
+    EstadisticasComponent,
+    CatalogoComponent,
+    VerProductoComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +55,9 @@ import { ProductoCategoriaService } from './Servicios/productoCategoria.service'
     HttpClientModule,
     FormsModule,
     NgbModule,
-    FormsModule
+    ChartsModule,
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [CategoriasService,
               ProductosService,

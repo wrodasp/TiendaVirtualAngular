@@ -7,23 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'PanelAdministrador';
-
+  
   constructor(private router:Router) {}
   
   ngOnInit() {
-    this.abrirUsuarios();
-  }
-
-  abrirUsuarios() {
-    this.router.navigate(["usuarios"]);
-  }
-
-  abrirProductos() {
-    this.router.navigate(["productos"]);
-  }
-
-  abrirCategorias() {
-    this.router.navigate(["categorias"]);
+    this.router.navigate(['catalogo'])
   }
 }
