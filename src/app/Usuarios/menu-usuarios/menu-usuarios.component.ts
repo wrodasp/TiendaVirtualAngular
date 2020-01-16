@@ -27,12 +27,12 @@ export class MenuUsuariosComponent implements OnInit {
   }
   
   agregarUsuario() {
-    this.router.navigate(["nuevoUsuario"]);
+    this.router.navigate(["administracion/usuarios/nuevoUsuario"]);
   }
 
   modificarUsuario(usuario:Usuario) {
     localStorage.setItem("correo", usuario.correo.toString());
-    this.router.navigate(['modificarUsuario']);
+    this.router.navigate(['administracion/usuarios/modificarUsuario']);
   }
 
   eliminarUsuario(usuario:Usuario) {

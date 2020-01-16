@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AgregarCategoriaComponent } from './Categorias/agregar-categoria/agregar-categoria.component';
 import { MenuCategoriasComponent } from './Categorias/menu-categorias/menu-categorias.component';
@@ -12,10 +12,15 @@ import { LoginComponent } from './Extras/login/login.component';
 import { PanelAdministradorComponent } from './Extras/panel-administrador/panel-administrador.component';
 import { PanelUsuarioComponent } from './Extras/panel-usuario/panel-usuario.component';
 import { EstadisticasComponent } from './Extras/estadisticas/estadisticas.component';
-import { CatalogoComponent } from './catalogo/catalogo.component';
+import { CarritoComponent } from './Carrito/carrito/carrito.component';
+import { NuevaCuentaComponent } from './Extras/nueva-cuenta/nueva-cuenta.component';
 import { VerProductoComponent } from './Productos/ver-producto/ver-producto.component';
+import { AppComponent } from './app.component';
+import { InicioComponent } from './Inicio/inicio/inicio.component';
 
 const routes: Routes = [
+  {path:'', redirectTo:'inicio', pathMatch:'full'},
+  {path:'inicio', component: InicioComponent},
   {path:'administracion/categorias', component:MenuCategoriasComponent},
   {path:'administracion/categorias/nuevaCategoria', component:AgregarCategoriaComponent},
   {path:'administracion/productos', component:MenuProductosComponent},
@@ -28,8 +33,9 @@ const routes: Routes = [
   {path:'administracion', component:PanelAdministradorComponent},
   {path:'cuenta', component: PanelUsuarioComponent},
   {path:'administracion/estadisticas', component: EstadisticasComponent},
-  {path:'catalogo', component: CatalogoComponent},
-  {path:'producto', component: VerProductoComponent}
+  {path:'carrito', component: CarritoComponent},
+  {path:'nuevaCuenta', component: NuevaCuentaComponent},
+  {path:'detalleProducto/:id', component: VerProductoComponent}
 ];
 
 @NgModule({

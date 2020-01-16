@@ -24,7 +24,11 @@ export class ComprasService {
     return this.http.get(`${this.url}/masVotados`);
   }
 
+  getClientesQueMasCompran(): Observable<any> {
+    return this.http.get(`${this.url}/queMasCompran`);
+  }
+
   agregarCompra(compra:Compra)  {
-    return this.http.post<Compra>(`${this.url}`,compra);
+    return this.http.post<Compra>(`${this.url}/agregar`,compra);
   }
 }

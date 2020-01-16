@@ -1,9 +1,14 @@
+<router-outlet></router-outlet>
+<div class="row mb-3 mt-3 mr-5 justify-content-end">
+    <button class="btn btn-primary-outline" (click)="irACarrito()"><img [src]="iconos[1]" width="32" height="32"></button>
+    <button class="btn btn-primary-outline" (click)="irAInicio()"><img [src]="iconos[2]" width="32" height="32"></button>
+</div>
 <div class="container col-md-4">
     <div class="text-center mt-3">
-        <img [src]="rutaLogo">
+        <img [src]="iconos[0]">
         <h3>Iniciar Sesion</h3>
     </div>
-    <form action="">
+    <form>
         <div class="form-group">
             <input class="form-control" placeholder="Correo electrónico" name="correo" type="email" [(ngModel)]="correo"
                 required>
@@ -11,8 +16,8 @@
                 required>
         </div>
         <div class="text-center">
-            <button (click)="iniciarSesion()" class="btn btn-primary">Iniciar Sesión</button>
+            <button (click)="iniciarSesion()" class="btn btn-primary">Iniciar Sesión</button><br>
+            <button class="btn btn-link mt-2" (click)="crearNuevaCuenta()">Crear una cuenta</button>
         </div>
     </form>
 </div>
-<router-outlet></router-outlet>

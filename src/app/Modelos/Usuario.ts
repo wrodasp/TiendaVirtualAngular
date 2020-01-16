@@ -1,9 +1,9 @@
 export class Usuario {
-    nombre:String;
-    apellido:String;
-    direccion:String;
-    telefono:String;
-    correo:String;
-    clave:String;
-    roll:String;
+    nombre:string;
+    apellido:string;
+    direccion:string;
+    telefono:string;
+    correo:string;
+    clave:string;
+    roll:string;
 }

@@ -17,26 +17,22 @@ export class ProductosService {
   }
   
   buscarProducto(id:number){
-    return this.http.get<Producto>((`${this.url}/${id}`));
+    return this.http.get<Producto>((`${this.url}/buscar/${id}`));
   }
 
   buscarProductoDesc(descripcion:String){
-    console.log(descripcion);
-    console.log((`${this.url}/filtro/${descripcion}`));
     return this.http.get<Producto>((`${this.url}/filtro/${descripcion}.`));
   }
   
   agregarProducto(producto:Producto)  {
-    return this.http.post<Producto>(`${this.url}`, producto);
+    return this.http.post<Producto>(`${this.url}/agregar`, producto);
   }
 
   eliminarProducto(producto:Producto) {
-    return this.http.delete(`${this.url}/${producto.id}`);
+    return this.http.delete(`${this.url}/eliminar/${producto.id}`);
   }
 
   modificarProducto(producto:Producto){
-    console.debug(producto.id);
-    return this.http.put<Producto>(`${this.url}/${producto.id}`, producto);
-
+    return this.http.put<Producto>(`${this.url}/modificar/${producto.id}`, producto);
   }
 }

@@ -1,24 +1,22 @@
-<mat-tab-group>
-    <div class="col-md-11">
-        <mat-tab label="Estadisticas">
-            <app-estadisticas></app-estadisticas>
-        </mat-tab>
-        <mat-tab label="Usuarios">
-            <app-menu-usuarios></app-menu-usuarios>
-        </mat-tab>
-        <mat-tab label="Productos">
-            <app-menu-productos></app-menu-productos>
-        </mat-tab>
-        <mat-tab label="Categorias">
-            <app-menu-categorias></app-menu-categorias>
-        </mat-tab>
-    </div>
-    <div class="col-md-2">
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <span (click)="cerrarSesion()">Cerrar Sesion</span>
-            </ng-template>
-        </mat-tab>
-    </div>
-</mat-tab-group>
 <router-outlet></router-outlet>
+<div class="row mt-3 mr-5 justify-content-end">
+    <button class="btn btn-primary-outline" (click)="cerrarSesion()"><img [src]="rutaLogout" width="32" height="32"></button>
+</div>
+<div class="container">
+    <mat-tab-group>
+        <div>
+            <mat-tab label="Estadisticas">
+                <app-estadisticas></app-estadisticas>
+            </mat-tab>
+            <mat-tab label="Usuarios">
+                <app-menu-usuarios></app-menu-usuarios>
+            </mat-tab>
+            <mat-tab label="Productos">
+                <app-menu-productos></app-menu-productos>
+            </mat-tab>
+            <mat-tab label="Categorias">
+                <app-menu-categorias></app-menu-categorias>
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+</div>

@@ -1,1 +1,35 @@
-<p>panel-usuario works!</p>
+<router-outlet></router-outlet>
+<div class="row mb-3 mt-3 mr-5 justify-content-end">
+    <button class="btn btn-primary-outline" (click)="irACarrito()">
+        <img [src]="iconos[0]" width="32" height="32">
+    </button>
+    <button class="btn btn-primary-outline" (click)="cerrarSesion()">
+        <img [src]="iconos[1]" width="32" height="32">
+    </button>
+    <button class="btn btn-primary-outline" (click)="irAInicio()">
+        <img [src]="iconos[2]" width="32" height="32">
+    </button>
+</div>
+<div class="container">
+    <img [src]="iconos[3]" width="32" height="32">
+    <h3>{{nombreSesion}}</h3><br><br>
+    <h3 class="text-center">Lista de productos comprados</h3><br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Producto</td>
+                <td>Descripcion</td>
+                <td>Cantidad</td>
+                <td>Precio</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let compra of compras">
+                <td><img src="{{compra[1].imagen}}" width="100" height="100"></td>
+                <td>{{compra[1].descripcion}}</td>
+                <td>{{compra[0].cantidad}}</td>
+                <td>{{compra[1].precio}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

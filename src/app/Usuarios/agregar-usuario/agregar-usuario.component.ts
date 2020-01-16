@@ -23,7 +23,7 @@ export class AgregarUsuarioComponent implements OnInit {
     this.usuario.correo = this.usuario.correo + ".";
     this.servicio.agregarUsuario(this.usuario).subscribe(
       data => {
-        this.router.navigate(["/usuarios"]);
+        this.router.navigate(["administracion/usuarios"]);
       }
     );
   }

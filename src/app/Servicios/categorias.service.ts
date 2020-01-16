@@ -17,14 +17,14 @@ export class CategoriasService {
   }
   
   agregarCategoria(categoria:Categoria)  {
-    return this.http.post<Categoria>(`${this.url}`, categoria);
+    return this.http.post<Categoria>(`${this.url}/agregar`, categoria);
   }
 
   eliminarCategoria(categoria:Categoria) {
-    return this.http.delete(`${this.url}/${categoria.id}`);
+    return this.http.delete(`${this.url}/eliminar/${categoria.id}`);
   }
 
   buscarCategoria(id: number) {
-    return this.http.get<Categoria>(`${this.url}/${id}`);
+    return this.http.get<Categoria>(`${this.url}/buscar/${id}`);
   }
 }

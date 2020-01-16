@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <div class="container">
     <div class="card">
         <div class="card-header">
@@ -22,17 +23,15 @@
                     <input class="form-control" placeholder="URL de imagen"
                            name="imagen" type="text" required
                            [(ngModel)]="producto.imagen">
-                    <label for="uname"><b>Categorias</b></label>
-                    <form *ngFor="let categoria of categorias">
-                        <input name="{{categoria.id}}" type="checkbox" required
-                               (change)="pasarCategoria(categoria)"
-                              >{{categoria.descripcion}}<br>
-                    </form>
+                    <label for="uname"><b>Categorias</b></label><br>
+                    <mat-radio-group name="cats" *ngFor="let categoria of categorias" [(ngModel)]="producto.categoria_id">
+                        <mat-radio-button [value]="categoria">
+                            {{categoria.descripcion}}
+                        </mat-radio-button><br>
+                    </mat-radio-group>
                 </div>
                 <button (click)="guardar()" class="btn btn-success">Guardar</button>
             </form>
         </div>
     </div>
 </div>
-
-<router-outlet></router-outlet>

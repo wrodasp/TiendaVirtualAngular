@@ -1,0 +1,24 @@
+<router-outlet></router-outlet>
+<div class="row mb-3 mt-3 mr-5 justify-content-end">
+    <button class="btn btn-primary-outline" (click)="irACarrito()"><img [src]="iconos[0]" width="32" height="32"></button>
+    <button class="btn btn-primary-outline" (click)="irAInicio()"><img [src]="iconos[1]" width="32" height="32"></button>
+</div>
+<div class="container col-md-4">
+    <div class="row mt-5 justify-content-center">
+        <h3>Ingrese sus datos:</h3>
+    </div>
+    <form>
+        <div class="form-group">
+            <input class="form-control" name="nombre" placeholder="Nombre" [(ngModel)]="usuario.nombre" required>
+            <input class="form-control" name="apellido" placeholder="Apellido" [(ngModel)]="usuario.apellido" required>
+            <input class="form-control" name="direccion" placeholder="Direccion" [(ngModel)]="usuario.direccion" required>
+            <input class="form-control" name="telefono" placeholder="Telefono" [(ngModel)]="usuario.telefono">
+            <input class="form-control" name="correo" placeholder="Correo electrónico" [(ngModel)]="usuario.correo" required>
+            <input class="form-control" name="clave" placeholder="Contraseña" [(ngModel)]="usuario.clave" required type="password">
+            <input class="form-control" name="clave2" placeholder="Confirmar contraseña" [(ngModel)]="claveRepetida" required type="password">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" (click)="crearCuenta()">Crear Cuenta</button>
+        </div>
+    </form>
+</div>

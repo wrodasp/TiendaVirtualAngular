@@ -12,13 +12,24 @@ export class LoginComponent implements OnInit {
   correo: String
   clave: String
   mensaje: String
-  rutaLogo = '../assets/imagenes/logo.png'
+  iconos = [
+    '../assets/imagenes/logo.png',
+    '../assets/imagenes/carrito.png',
+    '../assets/imagenes/inicio.png'
+  ]
 
   constructor(private servicio:UsuariosService,
               private router:Router) { }
 
   ngOnInit() {
     this.mensaje = "";
+    if(localStorage.getItem("login") == "true") {
+      if(localStorage.getItem("rolUsuario") == "Administrador") {
+        this.router.navigate(['administracion'])
+      } else {
+        this.router.navigate(['cuenta'])
+      }
+    }
   }
 
   iniciarSesion() {
@@ -26,7 +37,14 @@ export class LoginComponent implements OnInit {
       data => {
         if (data != null) {
           if (data.clave == this.clave) {
-            this.router.navigate(['administracion'])
+            localStorage.setItem("login","true")
+            if(data.roll == "Administrador") {
+              localStorage.setItem("rolusuario","Administrador")
+              this.router.navigate(['administracion'])
+            } else {
+              localStorage.setItem("rolusuario","Cliente")
+              this.router.navigate(['cuenta'])
+            }
           } else {
             this.mensaje = "Contraseña incorrecta!"
             alert('Contraseña incorrecta!')
@@ -37,5 +55,17 @@ export class LoginComponent implements OnInit {
         }
       }
     )
+  }
+
+  irACarrito() {
+    this.router.navigate(['carrito']);
+  }
+
+  irAInicio() {
+    this.router.navigate(['inicio'])
+  }
+
+  crearNuevaCuenta() {
+    this.router.navigate(['nuevaCuenta'])
   }
 }

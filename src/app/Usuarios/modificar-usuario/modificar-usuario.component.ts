@@ -35,7 +35,7 @@ export class ModificarUsuarioComponent implements OnInit {
       (confirmado) => {if (confirmado) {
         this.servicio.modificarUsuario(usuario).subscribe(
           data => {
-            this.router.navigate(["usuarios"]);
+            this.router.navigate(["administracion/usuarios"]);
           }
         );
       }}

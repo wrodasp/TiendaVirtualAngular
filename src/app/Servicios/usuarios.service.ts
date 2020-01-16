@@ -17,18 +17,18 @@ export class UsuariosService {
   }
   
   agregarUsuario(usuario:Usuario)  {
-    return this.http.post<Usuario>(`${this.url}`,usuario);
+    return this.http.post<Usuario>(`${this.url}/agregar`,usuario);
   }
 
   buscarUsuario(correo:String)  {
-    return this.http.get<Usuario>(`${this.url}/${correo}`);
+    return this.http.get<Usuario>(`${this.url}/buscar/${correo}`);
   }
 
   modificarUsuario(usuario:Usuario)  {
-    return this.http.put<Usuario>(`${this.url}/${usuario.correo}.`, usuario);
+    return this.http.put<Usuario>(`${this.url}/modificar/${usuario.correo}.`, usuario);
   }
 
   eliminarUsuario(usuario:Usuario) {
-    return this.http.delete(`${this.url}/${usuario.correo}`);
+    return this.http.delete(`${this.url}/eliminar/${usuario.correo}`);
   }
 }

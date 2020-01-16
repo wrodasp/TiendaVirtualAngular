@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class PanelAdministradorComponent implements OnInit {
 
   title = 'PanelAdministrador';
+  rutaLogout = '../assets/imagenes/logout.png'
 
   constructor(private router:Router) {}
   
@@ -32,6 +33,7 @@ export class PanelAdministradorComponent implements OnInit {
   }
 
   cerrarSesion() {
-    this.router.navigate(["catalogo"]);
+    localStorage.setItem("login","false")
+    this.router.navigate(["inicio"]);
   }
 }

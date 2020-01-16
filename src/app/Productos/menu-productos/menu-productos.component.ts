@@ -32,7 +32,7 @@ export class MenuProductosComponent implements OnInit {
   }
   
   agregarProducto() {
-    this.router.navigate(["nuevoProducto"]);
+    this.router.navigate(["administracion/productos/nuevoProducto"]);
   }
 
   eliminarProducto(producto:Producto) {
@@ -51,7 +51,7 @@ export class MenuProductosComponent implements OnInit {
 
   modificarProducto(producto:Producto) {
     localStorage.setItem("id", producto.id.toString());
-    this.router.navigate(['modificarProducto']);
+    this.router.navigate(['administracion/productos/modificarProducto']);
   }
 
   ordenar(atributo:String) {
@@ -88,6 +88,7 @@ export class MenuProductosComponent implements OnInit {
   filtrar() {
     this.productos = this.productos.filter(
       data => data.descripcion.toLowerCase().includes(this.filtro.toLowerCase())
-    )  
+    ) 
+    this.filtro = "" 
   }
 }

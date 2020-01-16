@@ -19,7 +19,6 @@ import { DialogoConfirmacionComponent } from './Extras/dialogo-confirmacion/dial
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsuariosService } from './Servicios/usuarios.service';
 import { DialogoConfirmacionService } from './Servicios/dialogo-confirmacion.service';
-import { ProductoCategoriaService } from './Servicios/productoCategoria.service';
 import { LoginComponent } from './Extras/login/login.component';
 import { PanelAdministradorComponent } from './Extras/panel-administrador/panel-administrador.component';
 import { PanelUsuarioComponent } from './Extras/panel-usuario/panel-usuario.component';
@@ -27,8 +26,14 @@ import { EstadisticasComponent } from './Extras/estadisticas/estadisticas.compon
 import { ChartsModule } from 'ng2-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import { CatalogoComponent } from './catalogo/catalogo.component';
-import { VerProductoComponent } from './Productos/ver-producto/ver-producto.component';
+import { MatRadioModule} from '@angular/material/radio';
+import { CarritoComponent } from './Carrito/carrito/carrito.component';
+import { NuevaCuentaComponent } from './Extras/nueva-cuenta/nueva-cuenta.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { VerProductoComponent } from './Productos/ver-producto/ver-producto.component'
+import { ComprasService } from './Servicios/compras.service';
+import { InicioComponent } from './Inicio/inicio/inicio.component';
+import { ShareButtonModule } from '@ngx-share/button';
 
 @NgModule({
   declarations: [
@@ -46,8 +51,10 @@ import { VerProductoComponent } from './Productos/ver-producto/ver-producto.comp
     PanelAdministradorComponent,
     PanelUsuarioComponent,
     EstadisticasComponent,
-    CatalogoComponent,
+    CarritoComponent,
+    NuevaCuentaComponent,
     VerProductoComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,12 +64,15 @@ import { VerProductoComponent } from './Productos/ver-producto/ver-producto.comp
     NgbModule,
     ChartsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule,
+    Ng2SearchPipeModule,
+    ShareButtonModule
   ],
   providers: [CategoriasService,
               ProductosService,
               UsuariosService,
-              ProductoCategoriaService,
+              ComprasService,
               DialogoConfirmacionService],
   bootstrap: [AppComponent],
   entryComponents:[

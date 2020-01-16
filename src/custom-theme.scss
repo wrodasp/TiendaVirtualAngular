@@ -25,4 +25,4 @@ $TiendaVirtual-theme: mat-light-theme($TiendaVirtual-primary, $TiendaVirtual-acc
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($TiendaVirtual-theme);
-
+@import '~@ngx-share/button/themes/default/default-theme';

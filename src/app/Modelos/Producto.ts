@@ -1,8 +1,9 @@
 export class Producto {
     id:number;
-    descripcion:String;
+    descripcion:string;
     precio:number;
     cantidad:number;
     votos:number;
-    imagen:String;
+    imagen:string;
+    categoria_id: number;
 }
