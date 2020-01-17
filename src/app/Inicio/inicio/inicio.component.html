@@ -5,14 +5,18 @@
             <img [src]="iconos[0]" height="70" width="50">
             <h4>Lyokozone</h4>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
             <input class="form-control text-center" [(ngModel)]="textoBusqueda" type="text"
                 placeholder="Buscar un producto">
             <h3 class="mt-3">Resultados:</h3>
         </div>
-        <div class="col-md-2">
-            <button class="btn btn-primary-outline" (click)="irACarrito()"><img [src]="iconos[1]" width="32" height="32"></button>
-            <button class="btn btn-primary-outline" (click)="iniciarSesion()"><img [src]="iconos[2]" width="32" height="32"></button>
+        <div class="col-md-3">
+            <button class="btn btn-primary-outline" (click)="irACarrito()">
+                <img [src]="iconos[1]" width="32" height="32">
+            </button>
+            <button class="btn btn-primary-outline" (click)="iniciarSesion()">
+                <img [src]="iconos[2]" width="32" height="32">
+            </button>
         </div>
     </div>
     <div class="row">

@@ -24,8 +24,7 @@ export class VerProductoComponent implements OnInit {
     '../assets/imagenes/meGusta.png',
     '../assets/imagenes/carritoAgregar.png'
   ]
-
-
+  
   constructor(private servicioProducto:ProductosService,
               private servicioCategoria:CategoriasService,
               private rutaActiva: ActivatedRoute,
@@ -40,7 +39,6 @@ export class VerProductoComponent implements OnInit {
 
   buscarProducto() {
     let id = <number> <unknown> this.rutaActiva.snapshot.params.id
-    console.log(id)
     this.servicioProducto.buscarProducto(id).subscribe(
       data => {
         this.producto = data
@@ -51,13 +49,7 @@ export class VerProductoComponent implements OnInit {
 
   buscarCategoriaDelProducto(id:number) {
     this.servicioCategoria.buscarCategoria(id).subscribe(
-      data => {
-        if (data != null) {
-          this.categoria = data
-        } else {
-          this.categoria.descripcion = "Todas"
-        }
-      }
+      data => this.categoria = data
     )
   }
 

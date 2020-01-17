@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  correo: String
-  clave: String
-  mensaje: String
+  correo: string
+  clave: string
+  mensaje: string
   iconos = [
     '../assets/imagenes/logo.png',
     '../assets/imagenes/carrito.png',
@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem("rolusuario","Administrador")
               this.router.navigate(['administracion'])
             } else {
+              localStorage.setItem("usuario_correo",this.correo)
               localStorage.setItem("rolusuario","Cliente")
               this.router.navigate(['cuenta'])
             }

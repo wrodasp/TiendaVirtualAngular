@@ -34,6 +34,7 @@ import { VerProductoComponent } from './Productos/ver-producto/ver-producto.comp
 import { ComprasService } from './Servicios/compras.service';
 import { InicioComponent } from './Inicio/inicio/inicio.component';
 import { ShareButtonModule } from '@ngx-share/button';
+import { DatosFacturacionComponent } from './Carrito/datos-facturacion/datos-facturacion.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ShareButtonModule } from '@ngx-share/button';
     NuevaCuentaComponent,
     VerProductoComponent,
     InicioComponent,
+    DatosFacturacionComponent,
   ],
   imports: [
     BrowserModule,

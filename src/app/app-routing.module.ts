@@ -17,6 +17,7 @@ import { NuevaCuentaComponent } from './Extras/nueva-cuenta/nueva-cuenta.compone
 import { VerProductoComponent } from './Productos/ver-producto/ver-producto.component';
 import { AppComponent } from './app.component';
 import { InicioComponent } from './Inicio/inicio/inicio.component';
+import { DatosFacturacionComponent } from './Carrito/datos-facturacion/datos-facturacion.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'inicio', pathMatch:'full'},
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path:'administracion/estadisticas', component: EstadisticasComponent},
   {path:'carrito', component: CarritoComponent},
   {path:'nuevaCuenta', component: NuevaCuentaComponent},
-  {path:'detalleProducto/:id', component: VerProductoComponent}
+  {path:'detalleProducto/:id', component: VerProductoComponent},
+  {path:'facturacion', component: DatosFacturacionComponent}
 ];
 
 @NgModule({

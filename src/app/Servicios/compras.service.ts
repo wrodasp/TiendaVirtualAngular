@@ -16,6 +16,10 @@ export class ComprasService {
     return this.http.get(`${this.url}`);
   }
 
+  getComprasDelCliente(correo:String): Observable<any> {
+    return this.http.get(`${this.url}/comprados/` + correo);
+  }
+
   getProductosMasVendidos(): Observable<any> {
     return this.http.get(`${this.url}/masVendidos`);
   }
