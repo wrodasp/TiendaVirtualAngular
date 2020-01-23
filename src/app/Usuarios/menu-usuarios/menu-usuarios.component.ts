@@ -21,20 +21,30 @@ export class MenuUsuariosComponent implements OnInit {
   ngOnInit() {
     this.listarUsuarios();
   }
-
+/**
+ * @description Metodo para listar a todos los usuarios
+ */
   listarUsuarios() {
     this.usuarios = this.servicio.getUsuarios();
   }
-  
+  /**
+   * Metodo para agregar un usuario nuevo
+   */
   agregarUsuario() {
     this.router.navigate(["administracion/usuarios/nuevoUsuario"]);
   }
-
+/**
+ * 
+ * @param usuario Trae al usuario que va a ser modificado
+ */
   modificarUsuario(usuario:Usuario) {
     localStorage.setItem("correo", usuario.correo.toString());
     this.router.navigate(['administracion/usuarios/modificarUsuario']);
   }
-
+/**
+ * 
+ * @param usuario trae al usuario que se va a eliminar
+ */
   eliminarUsuario(usuario:Usuario) {
     this.dialogoConfirmacion.confirm().then(
       (confirmado) => {if (confirmado) {

@@ -24,7 +24,9 @@ export class VerProductoComponent implements OnInit {
     '../assets/imagenes/meGusta.png',
     '../assets/imagenes/carritoAgregar.png'
   ]
-  
+  /**
+   * @description Constructor de la clase
+   */
   constructor(private servicioProducto:ProductosService,
               private servicioCategoria:CategoriasService,
               private rutaActiva: ActivatedRoute,
@@ -36,7 +38,9 @@ export class VerProductoComponent implements OnInit {
       this.carrito = JSON.parse(localStorage.getItem("carrito"))
     }
   }
-
+  /**
+   * @description metodo para bsucar un producto 
+   */
   buscarProducto() {
     let id = <number> <unknown> this.rutaActiva.snapshot.params.id
     this.servicioProducto.buscarProducto(id).subscribe(
@@ -46,13 +50,18 @@ export class VerProductoComponent implements OnInit {
       }  
     )
   }
-
+  /**
+   * @description Metodo para buscar la categoria del producto
+   * @param id identificador de la categoria del producto
+   */
   buscarCategoriaDelProducto(id:number) {
     this.servicioCategoria.buscarCategoria(id).subscribe(
       data => this.categoria = data
     )
   }
-
+  /**
+   * @description Metodo para valorar a un producto
+   */
   votar() {
     this.producto.votos += 1
     this.servicioProducto.modificarProducto(this.producto).subscribe()
@@ -61,20 +70,28 @@ export class VerProductoComponent implements OnInit {
   compartir() {
 
   }
-
+/**
+ * @description metodo para volver a la parte de inicio de la pagina 
+ */
   irAInicio() {
     this.router.navigate(['inicio']);
   }
-
+/**
+ * @description Metodo que muestra el carrito 
+ */
   irACarrito() {
     localStorage.setItem("carrito", JSON.stringify(this.carrito))
     this.router.navigate(['carrito']);
   }
-
+  /**
+   * metodo para dirigir al inicio de sesion
+   */
   iniciarSesion() {
     this.router.navigate(['login']);
   }
-
+  /**
+   * @description Metodo que agrega al carrito del cliente
+   */
   agregarAlCarrito() {
     let compra = new Compra()
     compra.producto_id = this.producto.id

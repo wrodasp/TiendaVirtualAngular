@@ -1,4 +1,7 @@
 export class Usuario {
+   /**
+    * Atributos de la clase Usuario
+    */
     nombre:string;
     apellido:string;
     direccion:string;

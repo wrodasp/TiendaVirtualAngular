@@ -19,18 +19,24 @@ export class AgregarProductoComponent implements OnInit {
               private router: Router,
               private servicioCategorias: CategoriasService) {
   }
-
+/**
+ * @description Un método de devolución de llamada que se invoca inmediatamente
+ */
   ngOnInit() {
     this.listarCategoria()
     this.producto.votos = 0;
     this.producto.categoria_id = 0
   }
-
+/**
+ * @description Metodo para guardar un producto
+ */
   guardar() {
     this.servicioProducto.agregarProducto(this.producto)
     this.router.navigate(["administracion/productos"]);
   }
-
+/**
+ * @description ListarCategoria lista las categorias de los productos
+ */
   listarCategoria() {
     this.servicioCategorias.getCategorias().subscribe(
       data => {
@@ -38,7 +44,10 @@ export class AgregarProductoComponent implements OnInit {
       }
     );
   }
-
+/**
+ * @description metodo pasarCategoria
+ * @param categoria atributo de tipo Categoria 
+ */
   pasarCategoria(categoria:Categoria) {
     this.producto.categoria_id = categoria.id
   }

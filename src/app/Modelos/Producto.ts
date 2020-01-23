@@ -1,4 +1,7 @@
 export class Producto {
+    /**
+     * Atributos de la clase Producto
+     */
     id:number;
     descripcion:string;
     precio:number;

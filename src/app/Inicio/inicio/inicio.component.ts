@@ -12,7 +12,8 @@ import { CategoriasService } from 'src/app/Servicios/categorias.service';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
+  items = [];
+  pageOfItems: Array<any>;
   textoBusqueda: String = ""
   categorias: Categoria[]
   productos: Producto[]
@@ -30,13 +31,13 @@ export class InicioComponent implements OnInit {
               private servicioCategoria: CategoriasService) { }
 
   ngOnInit() {
+    this.items = Array(20).fill(0).map((x, i) => (this.productos));
     this.listarProductos()
     this.listarCategorias()
     if (localStorage.getItem("carrito") != null) {
       this.carrito = JSON.parse(localStorage.getItem("carrito"))
     }
   }
-
   listarCategorias() {
     this.servicioCategoria.getCategorias().subscribe(
       data => {
@@ -79,4 +80,8 @@ export class InicioComponent implements OnInit {
   irADetalleProducto(producto:Producto) {
     this.router.navigate(['detalleProducto/'+ producto.id])
   }
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+}
 }

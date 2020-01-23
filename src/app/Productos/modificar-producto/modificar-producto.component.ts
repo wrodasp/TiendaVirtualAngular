@@ -24,7 +24,9 @@ export class ModificarProductoComponent implements OnInit {
   ngOnInit() {
     this.mostrarDatos();
   }
-
+  /**
+   * @description Metodo para mostrar los datos
+   */
   mostrarDatos(){
     let id = localStorage.getItem("id");
     this.servicio.buscarProducto(parseInt(id)).subscribe(
@@ -33,13 +35,18 @@ export class ModificarProductoComponent implements OnInit {
       }
     );
   }
-
+/**
+ * @description metodo para listar categoria del producto
+ */
   listarCategoriaDelProducto() {
     this.servicioCategorias.getCategorias().subscribe(
       data => this.categorias = data
     )
   }
-
+/**
+ * @description Metodo para Actualizar un producto
+ * @param producto Recibe un dato tipo Producto 
+ */
   actualizar(producto:Producto){
     this.dialogoConfirmacion.confirm().then(
       (confirmado) => {if (confirmado){
@@ -49,7 +56,9 @@ export class ModificarProductoComponent implements OnInit {
       }}
     );
   }
-
+/**
+ * @description Metodo para listar las categorias de los productos
+ */
   listarCategoria() {
     this.servicioCategorias.getCategorias().subscribe(
       data => {

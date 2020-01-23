@@ -11,14 +11,20 @@ import { Router } from '@angular/router';
 export class AgregarUsuarioComponent implements OnInit {
 
   usuario = new Usuario();
-  
+  /**
+   * @description Metodo constructor de la clase
+   * @param servicio 
+   * @param router 
+   */
   constructor(private servicio:UsuariosService,
               private router:Router) { }
 
   ngOnInit() {
     this.usuario.roll="Cliente"
   }
-
+  /**
+   * @description Metodo para guardar al usuario 
+   */
   guardar() {
     this.usuario.correo = this.usuario.correo + ".";
     this.servicio.agregarUsuario(this.usuario).subscribe(
